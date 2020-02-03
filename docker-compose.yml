@@ -39,7 +39,9 @@ services:
             - ./cm-page-parts:/var/www/html/wp-content/plugins/cm-page-parts
 
     ide:
-        image: codercom/code-server
+        build:
+            context: ./code-server
+            dockerfile: Dockerfile
         command: ["--auth", "none"]
         ports:
             - 8080:8080
