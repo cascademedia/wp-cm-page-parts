@@ -1,4 +1,6 @@
 {
+    "explorer.autoReveal": false,
+    "explorer.openEditors.visible": 0,
     "php.executablePath": "/usr/bin/php",
     "php.memoryLimit": "1G",
     "php.suggest.basic": false,
