@@ -36,11 +36,18 @@ services:
             - 8081:80
         volumes:
             - ./wp:/var/www/html
-            - ./wp-cm-logout-shortcodes:/var/www/html/wp-content/plugins/wp-cm-logout-shortcodes
+            - ./cm-page-parts:/var/www/html/wp-content/plugins/cm-page-parts
+
+    ide:
+        image: codercom/code-server
+        command: ["--auth", "none"]
+        ports:
+            - 8080:8080
+        volumes:
+            - ./:/home/coder/project
 
 volumes:
     database:
 
 networks:
     default:
-
