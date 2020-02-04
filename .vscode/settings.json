@@ -1,6 +1,11 @@
 {
+    "editor.renderWhitespace": "all",
     "explorer.autoReveal": false,
     "explorer.openEditors.visible": 0,
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
     "php.executablePath": "/usr/bin/php",
     "php.memoryLimit": "1G",
     "php.suggest.basic": false,
