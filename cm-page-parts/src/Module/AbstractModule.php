@@ -23,6 +23,7 @@ abstract class AbstractModule implements Module
     {
         $parent = $this->parent;
 
+        // @TODO This isn't needed anymore since parent is now set in constructor.
         if (!$parent) {
             throw new ParentNotSetException();
         }
