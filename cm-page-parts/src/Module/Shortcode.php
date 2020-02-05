@@ -19,6 +19,15 @@ class Shortcode extends AbstractModule
         add_shortcode('cm_page_part', [$this, 'pagePart']);
     }
 
+    /**
+     * Renders a given page part.
+     *
+     * Available options:
+     * `id` - Required. The ID of the cm_page_part post.
+     *
+     * @param array|null $options
+     * @return string
+     */
     public function pagePart($options)
     {
         $options = shortcode_atts(
