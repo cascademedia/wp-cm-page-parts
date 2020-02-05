@@ -2,9 +2,6 @@
 
 namespace CascadeMedia\WordPress\PagePartsPlugin;
 
-use CascadeMedia\WordPress\PagePartsPlugin\Exception\InvalidClassNameException;
-use CascadeMedia\WordPress\PagePartsPlugin\Exception\ClassDoesNotExistException;
-
 /**
  * Returns the FQCN that will be instantiated when the plugin boots.
  *

@@ -3,7 +3,6 @@
 namespace CascadeMedia\WordPress\PagePartsPlugin\Module;
 
 use CascadeMedia\WordPress\PagePartsPlugin\Module;
-use CascadeMedia\WordPress\PagePartsPlugin\Module\Exception\ParentAlreadySetException;
 use CascadeMedia\WordPress\PagePartsPlugin\Module\Exception\ParentNotSetException;
 use CascadeMedia\WordPress\PagePartsPlugin\PagePartsPlugin;
 

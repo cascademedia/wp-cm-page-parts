@@ -2,7 +2,6 @@
 
 namespace CascadeMedia\WordPress\PagePartsPlugin;
 
-use CascadeMedia\WordPress\PagePartsPlugin\Module;
 use CascadeMedia\WordPress\PagePartsPlugin\Module\CustomPostType;
 use CascadeMedia\WordPress\PagePartsPlugin\Traits\BindClosure;
 
