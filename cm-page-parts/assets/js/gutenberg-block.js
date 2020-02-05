@@ -4,13 +4,13 @@
     let SelectControl = components.SelectControl;
 
     let collectionEndpoint = new api.collections.Cm_page_part();
-    let selectOptions = [];
-    collectionEndpoint.fetch().done(function (pageCollection) {
-        selectOptions.push({
+    let selectOptions = [
+        {
             label: '-- Select --',
             value: null
-        });
-
+        }
+    ];
+    let selectPromise = collectionEndpoint.fetch().then(function (pageCollection) {
         for (let pageIndex in pageCollection) {
             if (pageCollection.hasOwnProperty(pageIndex)) {
                 let page = pageCollection[pageIndex];
@@ -32,9 +32,6 @@
             attributes: {
                 id: {
                     type: 'number'
-                },
-                title: {
-                    type: 'string'
                 }
             },
             supports: {
@@ -44,40 +41,22 @@
             },
             edit: function (props) {
                 let id = 'cm_page_part_' + Math.random().toString(36).substr(2, 9);
-                if (!props.attributes.title) {
-                    props.attributes.title = '-- Select --';
-                }
 
-                let emptySelect = [{
-                    label: props.attributes.title,
-                    value: null
-                }];
+                selectPromise.then(function () {
+                    // props.setAttributes({_rand: 'bleee'});
+                });
 
                 let selectElement = el(
                     SelectControl,
                     {
                         id: id,
                         value: props.attributes.id,
-                        options: selectOptions.length !== 0 ? selectOptions : emptySelect,
+                        options: selectOptions,
                         onChange: function (value) {
                             value = parseInt(value);
                             if (Number.isNaN(value)) value = null;
-                            let title = '';
 
-                            for (let selectIndex in selectOptions) {
-                                if (selectOptions.hasOwnProperty(selectIndex)) {
-                                    let selectOption = selectOptions[selectIndex];
-                                    if (selectOption.value === value) {
-                                        title = selectOption.label;
-                                        break;
-                                    }
-                                }
-                            }
-
-                            props.setAttributes({
-                                id: value,
-                                title: title
-                            });
+                            props.setAttributes({id: value});
                         }
                     }
                 );
