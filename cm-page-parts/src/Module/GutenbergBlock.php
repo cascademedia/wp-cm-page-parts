@@ -50,6 +50,7 @@ class GutenbergBlock extends AbstractModule
 
     protected function renderBlock($attributes): string
     {
+        //@TODO Make block rendering configurable?
         $id = (int)($attributes['id'] ?? null);
         return sprintf(
             '[cm_page_part id="%d"]',
