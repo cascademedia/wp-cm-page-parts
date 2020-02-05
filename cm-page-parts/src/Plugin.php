@@ -2,7 +2,6 @@
 
 namespace CascadeMedia\WordPress\PageParts;
 
-use CascadeMedia\WordPress\PageParts\Module\CustomPostType;
 use CascadeMedia\WordPress\PageParts\Traits\BindClosure;
 
 class Plugin
@@ -17,11 +16,6 @@ class Plugin
     public function __construct()
     {
         $this->registerHooks();
-
-        //@TODO Make this configurable.
-        $this->addModule(...[
-            new CustomPostType($this)
-        ]);
     }
 
     /**

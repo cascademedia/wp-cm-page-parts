@@ -18,3 +18,4 @@ require __DIR__ . '/bootstrap.php';
  * Instantiate the plugin!!
  */
 plugin_instance();
+plugin_modules_instantiate();
