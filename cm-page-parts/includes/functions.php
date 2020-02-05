@@ -3,6 +3,7 @@
 namespace CascadeMedia\WordPress\PageParts;
 
 use CascadeMedia\WordPress\PageParts\Module\CustomPostType;
+use CascadeMedia\WordPress\PageParts\Module\Shortcode;
 
 /**
  * Returns the FQCN that will be instantiated when the plugin boots.
@@ -47,7 +48,8 @@ function plugin_modules(): array
     return apply_filters(
         'cm_page_parts_plugin_modules',
         [
-            CustomPostType::class
+            CustomPostType::class,
+            Shortcode::class
         ]
     );
 }
