@@ -5,8 +5,7 @@ namespace CascadeMedia\WordPress\PageParts;
 use CascadeMedia\WordPress\PageParts\Module\CustomPostType;
 use CascadeMedia\WordPress\PageParts\Traits\BindClosure;
 
-//@TODO Rename class simply to `Plugin`, since there aren't multiple plugins here.
-class PagePartsPlugin
+class Plugin
 {
     use BindClosure;
 

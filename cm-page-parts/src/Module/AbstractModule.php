@@ -3,21 +3,21 @@
 namespace CascadeMedia\WordPress\PageParts\Module;
 
 use CascadeMedia\WordPress\PageParts\Module;
-use CascadeMedia\WordPress\PageParts\PagePartsPlugin;
+use CascadeMedia\WordPress\PageParts\Plugin;
 
 abstract class AbstractModule implements Module
 {
     /**
-     * @var PagePartsPlugin
+     * @var Plugin
      */
     protected $parent;
 
-    public function __construct(PagePartsPlugin $parent)
+    public function __construct(Plugin $parent)
     {
         $this->parent = $parent;
     }
 
-    public function getParent(): PagePartsPlugin
+    public function getParent(): Plugin
     {
         return $this->parent;
     }

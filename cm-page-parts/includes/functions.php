@@ -10,7 +10,7 @@ namespace CascadeMedia\WordPress\PageParts;
  */
 function plugin_class(): string
 {
-    return apply_filters('cm_page_parts_plugin_class', PagePartsPlugin::class);
+    return apply_filters('cm_page_parts_plugin_class', Plugin::class);
 }
 
 /**
@@ -27,7 +27,7 @@ function plugin_instance_arguments(): array
 /**
  * Initializes the plugin class.
  */
-function plugin_instance(): PagePartsPlugin
+function plugin_instance(): Plugin
 {
     return call_user_func_array([plugin_class(), 'getInstance'], plugin_instance_arguments());
 }
