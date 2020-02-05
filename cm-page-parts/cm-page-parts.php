@@ -18,5 +18,3 @@ require __DIR__ . '/bootstrap.php';
  * Instantiate the plugin!!
  */
 plugin_instance();
-
-//@TODO Change namespace from `PagePartsPlugin` to simply `PageParts`
