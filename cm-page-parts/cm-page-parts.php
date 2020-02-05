@@ -10,30 +10,11 @@
  * Author URI: http://cascademedia.us/
  */
 
-declare(strict_types=1);
+namespace CascadeMedia\WordPress\PagePartsPlugin;
 
-namespace CascadeMedia\WordPress;
+require __DIR__ . '/bootstrap.php';
 
-class PagePartsPlugin
-{
-    public function __construct()
-    {
-
-    }
-
-    public static function getInstance()
-    {
-        static $instance = null;
-
-        if (!$instance) {
-            $instance = new self();
-        }
-
-        return $instance;
-    }
-
-    public function doIt()
-    {
-
-    }
-}
+/**
+ * Instantiate the plugin!!
+ */
+plugin_instance();
