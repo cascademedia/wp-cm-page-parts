@@ -2,11 +2,27 @@
 
 namespace CascadeMedia\WordPress\PagePartsPlugin;
 
+use CascadeMedia\WordPress\PagePartsPlugin\Module;
+use CascadeMedia\WordPress\PagePartsPlugin\Module\CustomPostType;
+use CascadeMedia\WordPress\PagePartsPlugin\Traits\BindClosure;
+
 class PagePartsPlugin
 {
+    use BindClosure;
+
+    /**
+     * @var Module[]
+     */
+    protected $modules = [];
+
     public function __construct()
     {
         $this->registerHooks();
+
+        //@TODO Make this configurable.
+        $this->addModules(...[
+            new CustomPostType($this)
+        ]);
     }
 
     /**
@@ -23,17 +39,14 @@ class PagePartsPlugin
         return $instance;
     }
 
-    protected function bindClosure(\Closure $closure)
+    protected function init(): void
     {
-        return \Closure::bind($closure, $this, $this);
+        foreach ($this->modules as $module) {
+            $module->init();
+        }
     }
 
-    protected function init()
-    {
-        ;
-    }
-
-    protected function registerHooks()
+    protected function registerHooks(): void
     {
         add_action(
             'init',
@@ -43,5 +56,17 @@ class PagePartsPlugin
                 }
             )
         );
+    }
+
+    public function addModule(Module $module): void
+    {
+        $this->modules[] = $module;
+    }
+
+    public function addModules(Module ...$modules): void
+    {
+        foreach ($modules as $module) {
+            $this->addModule($module);
+        }
     }
 }
