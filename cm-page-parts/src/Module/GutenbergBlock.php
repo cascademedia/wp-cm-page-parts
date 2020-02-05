@@ -23,7 +23,9 @@ class GutenbergBlock extends AbstractModule
             'cm_page_parts_gutenberg_block',
             CM_PAGE_PARTS_URL . 'assets/js/gutenberg-block.js',
             [
+                'wp-block-editor',
                 'wp-blocks',
+                'wp-components',
                 'wp-element'
             ],
             false,
