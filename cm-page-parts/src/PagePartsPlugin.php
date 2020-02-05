@@ -6,14 +6,7 @@ class PagePartsPlugin
 {
     public function __construct()
     {
-        add_action(
-            'init',
-            $this->bindClosure(
-                function () {
-                    $this->init();
-                }
-            )
-        );
+        $this->registerHooks();
     }
 
     /**
@@ -38,5 +31,17 @@ class PagePartsPlugin
     protected function init()
     {
         ;
+    }
+
+    protected function registerHooks()
+    {
+        add_action(
+            'init',
+            $this->bindClosure(
+                function () {
+                    $this->init();
+                }
+            )
+        );
     }
 }
