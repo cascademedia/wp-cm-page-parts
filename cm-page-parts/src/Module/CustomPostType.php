@@ -2,8 +2,6 @@
 
 namespace CascadeMedia\WordPress\PageParts\Module;
 
-use CascadeMedia\WordPress\PageParts\Module;
-
 class CustomPostType extends AbstractModule
 {
     public function init(): void
