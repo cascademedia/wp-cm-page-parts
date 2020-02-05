@@ -19,7 +19,7 @@ class Plugin
         $this->registerHooks();
 
         //@TODO Make this configurable.
-        $this->addModules(...[
+        $this->addModule(...[
             new CustomPostType($this)
         ]);
     }
@@ -57,15 +57,10 @@ class Plugin
         );
     }
 
-    public function addModule(Module $module): void
-    {
-        $this->modules[] = $module;
-    }
-
-    public function addModules(Module ...$modules): void
+    public function addModule(Module ...$modules): void
     {
         foreach ($modules as $module) {
-            $this->addModule($module);
+            $this->modules[] = $module;
         }
     }
 }
