@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+    ide:
+        build:
+            context: ./code-server
+            dockerfile: Dockerfile
+        command: ["--auth", "none", "/home/coder/project"]
+        ports:
+            - 8080:8080
+        volumes:
+            - ./:/home/coder/project
