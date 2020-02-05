@@ -1,9 +1,9 @@
 <?php
 
-namespace CascadeMedia\WordPress\PagePartsPlugin;
+namespace CascadeMedia\WordPress\PageParts;
 
 spl_autoload_register(function (string $className) {
-    $classPrefix = 'CascadeMedia\\WordPress\\PagePartsPlugin\\';
+    $classPrefix = 'CascadeMedia\\WordPress\\PageParts\\';
     $sourceDirectory = __DIR__ . '/../src';
 
     if (strpos($className, $classPrefix) !== 0) {

@@ -1,8 +1,8 @@
 <?php
 
-namespace CascadeMedia\WordPress\PagePartsPlugin\Module;
+namespace CascadeMedia\WordPress\PageParts\Module;
 
-use CascadeMedia\WordPress\PagePartsPlugin\Module;
+use CascadeMedia\WordPress\PageParts\Module;
 
 class CustomPostType extends AbstractModule
 {

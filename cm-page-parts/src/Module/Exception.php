@@ -1,8 +1,8 @@
 <?php
 
-namespace CascadeMedia\WordPress\PagePartsPlugin\Module;
+namespace CascadeMedia\WordPress\PageParts\Module;
 
-use CascadeMedia\WordPress\PagePartsPlugin\Exception as BaseException;
+use CascadeMedia\WordPress\PageParts\Exception as BaseException;
 
 interface Exception extends BaseException
 {

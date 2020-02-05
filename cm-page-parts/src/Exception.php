@@ -1,6 +1,6 @@
 <?php
 
-namespace CascadeMedia\WordPress\PagePartsPlugin;
+namespace CascadeMedia\WordPress\PageParts;
 
 interface Exception
 {

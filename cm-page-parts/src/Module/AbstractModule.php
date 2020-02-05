@@ -1,10 +1,10 @@
 <?php
 
-namespace CascadeMedia\WordPress\PagePartsPlugin\Module;
+namespace CascadeMedia\WordPress\PageParts\Module;
 
-use CascadeMedia\WordPress\PagePartsPlugin\Module;
-use CascadeMedia\WordPress\PagePartsPlugin\Module\Exception\ParentNotSetException;
-use CascadeMedia\WordPress\PagePartsPlugin\PagePartsPlugin;
+use CascadeMedia\WordPress\PageParts\Module;
+use CascadeMedia\WordPress\PageParts\Module\Exception\ParentNotSetException;
+use CascadeMedia\WordPress\PageParts\PagePartsPlugin;
 
 abstract class AbstractModule implements Module
 {

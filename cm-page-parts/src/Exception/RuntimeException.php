@@ -1,8 +1,8 @@
 <?php
 
-namespace CascadeMedia\WordPress\PagePartsPlugin\Exception;
+namespace CascadeMedia\WordPress\PageParts\Exception;
 
-use CascadeMedia\WordPress\PagePartsPlugin\Exception;
+use CascadeMedia\WordPress\PageParts\Exception;
 
 class RuntimeException extends \RuntimeException implements Exception
 {

@@ -10,7 +10,7 @@
  * Author URI: http://cascademedia.us/
  */
 
-namespace CascadeMedia\WordPress\PagePartsPlugin;
+namespace CascadeMedia\WordPress\PageParts;
 
 require __DIR__ . '/bootstrap.php';
 

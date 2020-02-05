@@ -1,6 +1,6 @@
 <?php
 
-namespace CascadeMedia\WordPress\PagePartsPlugin;
+namespace CascadeMedia\WordPress\PageParts;
 
 require __DIR__ . '/includes/autoloader.php';
 require __DIR__ . '/includes/functions.php';

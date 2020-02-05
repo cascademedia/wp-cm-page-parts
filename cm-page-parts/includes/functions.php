@@ -1,6 +1,6 @@
 <?php
 
-namespace CascadeMedia\WordPress\PagePartsPlugin;
+namespace CascadeMedia\WordPress\PageParts;
 
 /**
  * Returns the FQCN that will be instantiated when the plugin boots.
