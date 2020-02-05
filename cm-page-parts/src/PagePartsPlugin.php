@@ -6,7 +6,14 @@ class PagePartsPlugin
 {
     public function __construct()
     {
-        add_action('init', [$this, 'init']);
+        add_action(
+            'init',
+            $this->bindClosure(
+                function () {
+                    $this->init();
+                }
+            )
+        );
     }
 
     /**
@@ -21,6 +28,11 @@ class PagePartsPlugin
         }
 
         return $instance;
+    }
+
+    protected function bindClosure(\Closure $closure)
+    {
+        return \Closure::bind($closure, $this, $this);
     }
 
     protected function init()
