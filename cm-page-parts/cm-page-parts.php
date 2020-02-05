@@ -14,6 +14,9 @@ namespace CascadeMedia\WordPress\PageParts;
 
 require __DIR__ . '/bootstrap.php';
 
+define('CM_PAGE_PARTS_DIR', plugin_dir_path(__FILE__));
+define('CM_PAGE_PARTS_URL', plugin_dir_url(__FILE__));
+
 /**
  * Instantiate the plugin!!
  */
