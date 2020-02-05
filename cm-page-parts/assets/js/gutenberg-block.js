@@ -91,8 +91,8 @@
                     )
                 );
             },
-            save: function (props) {
-                return ['[cm_page_part id="', props.attributes.id, '"]'].join('');
+            save: function () {
+                return null;
             }
         }
     );

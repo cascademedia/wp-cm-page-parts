@@ -2,8 +2,12 @@
 
 namespace CascadeMedia\WordPress\PageParts\Module;
 
+use CascadeMedia\WordPress\PageParts\Traits\BindClosure;
+
 class GutenbergBlock extends AbstractModule
 {
+    use BindClosure;
+
     public function init(): void
     {
         if (!$this->shouldContinue()) {
@@ -36,8 +40,20 @@ class GutenbergBlock extends AbstractModule
         register_block_type(
             'cm/page-part',
             [
-                'editor_script' => 'cm_page_parts_gutenberg_block'
+                'editor_script' => 'cm_page_parts_gutenberg_block',
+                'render_callback' => $this->bindThis(function ($attributes) {
+                    return $this->renderBlock($attributes);
+                })
             ]
+        );
+    }
+
+    protected function renderBlock($attributes): string
+    {
+        $id = (int)($attributes['id'] ?? null);
+        return sprintf(
+            '[cm_page_part id="%d"]',
+            $id
         );
     }
 
