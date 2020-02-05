@@ -3,6 +3,7 @@
 namespace CascadeMedia\WordPress\PageParts;
 
 use CascadeMedia\WordPress\PageParts\Module\CustomPostType;
+use CascadeMedia\WordPress\PageParts\Module\GutenbergBlock;
 use CascadeMedia\WordPress\PageParts\Module\Shortcode;
 
 /**
@@ -49,6 +50,7 @@ function plugin_modules(): array
         'cm_page_parts_plugin_modules',
         [
             CustomPostType::class,
+            GutenbergBlock::class,
             Shortcode::class
         ]
     );
