@@ -1,6 +1,6 @@
 (function (api, blockEditor, blocks, components, element) {
     let el = element.createElement;
-    // let PlainText = blockEditor.PlainText;
+    let PlainText = blockEditor.PlainText;
     let Dashicon = components.Dashicon;
     let SelectControl = components.SelectControl;
 
@@ -76,19 +76,19 @@
                         ),
                         'Page Part'
                     ),
-                    selectElement
-                    // el(
-                    //     PlainText,
-                    //     {
-                    //         className: 'input-control',
-                    //         id: id,
-                    //         placeholder: 'Put ID here...',
-                    //         value: props.attributes.id,
-                    //         onChange: function (value) {
-                    //             props.setAttributes({id: value});
-                    //         }
-                    //     }
-                    // )
+                    // selectElement
+                    el(
+                        PlainText,
+                        {
+                            className: 'input-control',
+                            id: id,
+                            placeholder: 'Put ID here...',
+                            value: props.attributes.id,
+                            onChange: function (value) {
+                                props.setAttributes({id: value});
+                            }
+                        }
+                    )
                 );
             },
             save: function (props) {
