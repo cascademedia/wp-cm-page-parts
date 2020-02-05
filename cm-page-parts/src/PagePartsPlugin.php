@@ -50,7 +50,7 @@ class PagePartsPlugin
     {
         add_action(
             'init',
-            $this->bindClosure(
+            $this->bindThis(
                 function () {
                     $this->init();
                 }
