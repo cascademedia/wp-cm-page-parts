@@ -1,26 +1,7 @@
-(function (api, blockEditor, blocks, components, element) {
+(function (blockEditor, blocks, components, element) {
     let el = element.createElement;
     let Dashicon = components.Dashicon;
     let SelectControl = components.SelectControl;
-
-    let collectionEndpoint = new api.collections.Cm_page_part();
-    let selectOptions = [
-        {
-            label: '-- Select --',
-            value: null
-        }
-    ];
-    let selectPromise = collectionEndpoint.fetch().then(function (pageCollection) {
-        for (let pageIndex in pageCollection) {
-            if (pageCollection.hasOwnProperty(pageIndex)) {
-                let page = pageCollection[pageIndex];
-                selectOptions.push({
-                    label: page.title.rendered,
-                    value: page.id
-                });
-            }
-        }
-    });
 
     blocks.registerBlockType(
         'cm/page-part',
@@ -42,16 +23,12 @@
             edit: function (props) {
                 let id = 'cm_page_part_' + Math.random().toString(36).substr(2, 9);
 
-                selectPromise.then(function () {
-                    // props.setAttributes({_rand: 'bleee'});
-                });
-
                 let selectElement = el(
                     SelectControl,
                     {
                         id: id,
                         value: props.attributes.id,
-                        options: selectOptions,
+                        options: window['cm_page_part']['options'],
                         onChange: function (value) {
                             value = parseInt(value);
                             if (Number.isNaN(value)) value = null;
@@ -89,7 +66,6 @@
         }
     );
 })(
-    window.wp.api,
     window.wp.blockEditor,
     window.wp.blocks,
     window.wp.components,

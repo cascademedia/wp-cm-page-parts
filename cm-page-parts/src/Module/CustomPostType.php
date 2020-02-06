@@ -4,6 +4,8 @@ namespace CascadeMedia\WordPress\PageParts\Module;
 
 class CustomPostType extends AbstractModule
 {
+    public const POST_TYPE = 'cm_page_part';
+
     public function init(): void
     {
         $this->registerPostType();
@@ -16,10 +18,8 @@ class CustomPostType extends AbstractModule
      */
     protected function registerPostType(): void
     {
-        $postType = 'cm_page_part';
-
         register_post_type(
-            $postType,
+            self::POST_TYPE,
             [
                 'label' => 'Page Parts',
                 'labels' => [],
@@ -33,7 +33,7 @@ class CustomPostType extends AbstractModule
                 'show_in_nav_menus' => false,
                 'show_in_admin_bar' => false,
                 'show_in_rest' => true,
-                'rest_base' => $postType,
+                'rest_base' => self::POST_TYPE,
                 // 'rest_controller_class' => '',
                 // 'menu_position' => null //@TODO dynamically place after `Pages`,
                 'menu_icon' => 'dashicons-layout',
@@ -45,7 +45,7 @@ class CustomPostType extends AbstractModule
                 // 'taxonomies' => [],
                 'has_archive' => false,
                 'rewrite' => true,
-                'query_var' => $postType,
+                'query_var' => self::POST_TYPE,
                 'can_export' => true,
                 'delete_with_user' => null
             ]

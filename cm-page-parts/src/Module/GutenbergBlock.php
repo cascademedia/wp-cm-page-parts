@@ -27,7 +27,6 @@ class GutenbergBlock extends AbstractModule
             'cm_page_parts_gutenberg_block',
             CM_PAGE_PARTS_URL . 'assets/js/gutenberg-block.js',
             [
-                'wp-api',
                 'wp-block-editor',
                 'wp-blocks',
                 'wp-components',
@@ -36,6 +35,35 @@ class GutenbergBlock extends AbstractModule
             false,
             true
         );
+
+        add_action('enqueue_block_editor_assets', function () {
+            $posts = get_posts([
+                'post_type' => CustomPostType::POST_TYPE
+            ]);
+            $postData = [
+                [
+                    'label' => '-- Select --',
+                    'value' => null
+                ]
+            ];
+
+            foreach ($posts as $post) {
+                $postData[] = [
+                    'label' => $post->post_title,
+                    'value' => $post->ID
+                ];
+            }
+
+            wp_add_inline_script(
+                'cm_page_parts_gutenberg_block',
+                sprintf(
+                    'window.%1$s = window.%1$s || {}; window.%1$s.options = %2$s;',
+                    CustomPostType::POST_TYPE,
+                    json_encode($postData)
+                ),
+                'before'
+            );
+        });
 
         register_block_type(
             'cm/page-part',
