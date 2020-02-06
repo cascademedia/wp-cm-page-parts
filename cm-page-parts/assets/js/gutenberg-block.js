@@ -1,4 +1,4 @@
-(function (blockEditor, blocks, components, element) {
+(function (blocks, components, element) {
     let el = element.createElement;
     let Dashicon = components.Dashicon;
     let SelectControl = components.SelectControl;
@@ -66,7 +66,6 @@
         }
     );
 })(
-    window.wp.blockEditor,
     window.wp.blocks,
     window.wp.components,
     window.wp.element
