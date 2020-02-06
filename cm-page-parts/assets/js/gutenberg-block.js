@@ -26,6 +26,7 @@
                 let selectElement = el(
                     SelectControl,
                     {
+                        className: 'page-part-select',
                         id: id,
                         value: props.attributes.id,
                         options: window['cm_page_part']['options'],

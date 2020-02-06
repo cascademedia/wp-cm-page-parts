@@ -24,7 +24,7 @@ class GutenbergBlock extends AbstractModule
     protected function registerBlock(): void
     {
         wp_register_script(
-            'cm_page_parts_gutenberg_block',
+            'cm_page_parts_gutenberg_block_script',
             CM_PAGE_PARTS_URL . 'assets/js/gutenberg-block.js',
             [
                 'wp-blocks',
@@ -33,6 +33,11 @@ class GutenbergBlock extends AbstractModule
             ],
             false,
             true
+        );
+
+        wp_register_style(
+            'cm_page_parts_gutenberg_block_style',
+            CM_PAGE_PARTS_URL . 'assets/css/gutenberg-block.css'
         );
 
         add_action('enqueue_block_editor_assets', function () {
@@ -56,7 +61,7 @@ class GutenbergBlock extends AbstractModule
             }
 
             wp_add_inline_script(
-                'cm_page_parts_gutenberg_block',
+                'cm_page_parts_gutenberg_block_script',
                 sprintf(
                     'window.%1$s = window.%1$s || {}; window.%1$s.options = %2$s;',
                     CustomPostType::POST_TYPE,
@@ -69,7 +74,8 @@ class GutenbergBlock extends AbstractModule
         register_block_type(
             'cm/page-part',
             [
-                'editor_script' => 'cm_page_parts_gutenberg_block',
+                'editor_script' => 'cm_page_parts_gutenberg_block_script',
+                'editor_style' => 'cm_page_parts_gutenberg_block_style',
                 'render_callback' => $this->bindThis(function ($attributes) {
                     return $this->renderBlock($attributes);
                 })
