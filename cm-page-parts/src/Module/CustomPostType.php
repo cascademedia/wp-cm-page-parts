@@ -9,6 +9,7 @@ class CustomPostType extends AbstractModule
     public function init(): void
     {
         $this->registerPostType();
+        $this->setDefaultSortOrder();
     }
 
     /**
@@ -50,5 +51,26 @@ class CustomPostType extends AbstractModule
                 'delete_with_user' => null
             ]
         );
+    }
+
+    /**
+     * Sets the default sort order of posts on the list page.
+     *
+     * @see https://developer.wordpress.org/reference/hooks/pre_get_posts/
+     */
+    protected function setDefaultSortOrder(): void
+    {
+        add_action('pre_get_posts', function (\WP_Query $query) {
+            if (!is_admin()) {
+                return;
+            }
+
+            $screen = get_current_screen();
+
+            if ($screen->post_type === self::POST_TYPE && $screen->base === 'edit' && !isset($_GET['orderby'])) {
+                $query->set('orderby', 'title');
+                $query->set('order', 'ASC');
+            }
+        });
     }
 }

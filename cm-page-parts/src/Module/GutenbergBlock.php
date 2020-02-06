@@ -37,7 +37,9 @@ class GutenbergBlock extends AbstractModule
 
         add_action('enqueue_block_editor_assets', function () {
             $posts = get_posts([
-                'post_type' => CustomPostType::POST_TYPE
+                'post_type' => CustomPostType::POST_TYPE,
+                'orderby' => 'title',
+                'order' => 'ASC'
             ]);
             $postData = [
                 [
