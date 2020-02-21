@@ -52,8 +52,9 @@ class Shortcode extends AbstractModule
 
         if ($post->post_type !== 'cm_page_part') {
             return $this->formatError(sprintf(
-                'Post "%d" is not a "cm_page_part"',
-                $id
+                'Post %d is not a "%s"',
+                $id,
+                CustomPostType::POST_TYPE
             ));
         }
 
