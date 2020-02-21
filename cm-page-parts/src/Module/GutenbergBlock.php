@@ -95,7 +95,7 @@ class GutenbergBlock extends AbstractModule
     }
 
     /**
-     * Determines whether or not the module should continue loading or not. If Gutenberg isn't enabled, there's no
+     * Determines whether or not the module should continue loading. If Gutenberg isn't enabled, there's no
      * reason to load this module.
      *
      * @return bool
