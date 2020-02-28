@@ -1,6 +1,6 @@
 <?php
 
-namespace CascadeMedia\WordPress\PageParts;
+namespace EstelSmith\WordPress\PageParts;
 
 interface Module
 {

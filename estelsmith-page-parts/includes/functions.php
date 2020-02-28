@@ -1,31 +1,31 @@
 <?php
 
-namespace CascadeMedia\WordPress\PageParts;
+namespace EstelSmith\WordPress\PageParts;
 
-use CascadeMedia\WordPress\PageParts\Module\CustomPostType;
-use CascadeMedia\WordPress\PageParts\Module\GutenbergBlock;
-use CascadeMedia\WordPress\PageParts\Module\Shortcode;
+use EstelSmith\WordPress\PageParts\Module\CustomPostType;
+use EstelSmith\WordPress\PageParts\Module\GutenbergBlock;
+use EstelSmith\WordPress\PageParts\Module\Shortcode;
 
 /**
  * Returns the FQCN that will be instantiated when the plugin boots.
  *
- * Provides a `cm_page_parts_plugin_class` filter allowing users to point to their
+ * Provides a `estelsmith_page_parts_plugin_class` filter allowing users to point to their
  * own class to be instantiated.
  */
 function plugin_class(): string
 {
-    return apply_filters('cm_page_parts_plugin_class', Plugin::class);
+    return apply_filters('estelsmith_page_parts_plugin_class', Plugin::class);
 }
 
 /**
  * Returns the arguments that will be passed to the instantiated class constructor.
  *
- * Provides a `cm_page_parts_plugin_instance_arguments` filter allowing user to modify
+ * Provides a `estelsmith_page_parts_plugin_instance_arguments` filter allowing user to modify
  * the constructor arguments before the class is instantiated.
  */
 function plugin_instance_arguments(): array
 {
-    return apply_filters('cm_page_parts_plugin_instance_arguments', []);
+    return apply_filters('estelsmith_page_parts_plugin_instance_arguments', []);
 }
 
 /**
@@ -39,15 +39,15 @@ function plugin_instance(): Plugin
 /**
  * Returns a list of modules that will be added to the plugin.
  *
- * Provides a `cm_page_parts_plugin_modules` filter allowing the user to modify the modules that will be added to the
- * plugin.
+ * Provides a `estelsmith_page_parts_plugin_modules` filter allowing the user to modify the modules that will be added
+ * to the plugin.
  *
  * @return string[]
  */
 function plugin_modules(): array
 {
     return apply_filters(
-        'cm_page_parts_plugin_modules',
+        'estelsmith_page_parts_plugin_modules',
         [
             CustomPostType::class,
             GutenbergBlock::class,
@@ -59,7 +59,7 @@ function plugin_modules(): array
 /**
  * Instantiate modules and add them to the plugin.
  *
- * Provides a `cm_page_parts_module_instance` filter per-plugin that allows the user to modify how the module is
+ * Provides a `estelsmith_page_parts_module_instance` filter per-plugin that allows the user to modify how the module is
  * constructed before being added to the plugin.
  *
  * @return Module[]
@@ -71,7 +71,7 @@ function plugin_modules_instantiate(): array
     $modules = [];
 
     foreach ($moduleClasses as $className) {
-        [$resolvedClass, $arguments] = apply_filters('cm_page_parts_module_instance', [$className, [$plugin]]);
+        [$resolvedClass, $arguments] = apply_filters('estelsmith_page_parts_module_instance', [$className, [$plugin]]);
         $modules[] = new $resolvedClass(...$arguments);
     }
 

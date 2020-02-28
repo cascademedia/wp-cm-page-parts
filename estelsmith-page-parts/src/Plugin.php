@@ -1,8 +1,8 @@
 <?php
 
-namespace CascadeMedia\WordPress\PageParts;
+namespace EstelSmith\WordPress\PageParts;
 
-use CascadeMedia\WordPress\PageParts\Traits\BindClosure;
+use EstelSmith\WordPress\PageParts\Traits\BindClosure;
 
 class Plugin
 {

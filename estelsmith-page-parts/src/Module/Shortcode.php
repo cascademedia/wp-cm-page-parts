@@ -1,6 +1,6 @@
 <?php
 
-namespace CascadeMedia\WordPress\PageParts\Module;
+namespace EstelSmith\WordPress\PageParts\Module;
 
 class Shortcode extends AbstractModule
 {
@@ -10,20 +10,20 @@ class Shortcode extends AbstractModule
     }
 
     /**
-     * Register shortcodes to render the `cm_page_part` posts.
+     * Register shortcodes to render the `estelsmith_page_part` posts.
      *
      * @see https://developer.wordpress.org/reference/functions/add_shortcode/
      */
     protected function registerShortcodes(): void
     {
-        add_shortcode('cm_page_part', [$this, 'pagePart']);
+        add_shortcode('estelsmith_page_part', [$this, 'pagePart']);
     }
 
     /**
      * Renders a given page part.
      *
      * Available options:
-     * `id` - Required. The ID of the cm_page_part post.
+     * `id` - Required. The ID of the estelsmith_page_part post.
      *
      * @param array|null $options
      * @return string
@@ -50,7 +50,7 @@ class Shortcode extends AbstractModule
             ));
         }
 
-        if ($post->post_type !== 'cm_page_part') {
+        if ($post->post_type !== 'estelsmith_page_part') {
             return $this->formatError(sprintf(
                 'Post %d is not a "%s"',
                 $id,
@@ -64,7 +64,7 @@ class Shortcode extends AbstractModule
     protected function formatError(string $message): string
     {
         return sprintf(
-            'CM_PAGE_PART ERROR: %s',
+            'ESTELSMITH_PAGE_PART ERROR: %s',
             $message
         );
     }

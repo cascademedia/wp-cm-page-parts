@@ -1,10 +1,10 @@
 <?php
 
-namespace CascadeMedia\WordPress\PageParts\Module;
+namespace EstelSmith\WordPress\PageParts\Module;
 
 class CustomPostType extends AbstractModule
 {
-    public const POST_TYPE = 'cm_page_part';
+    public const POST_TYPE = 'estelsmith_page_part';
 
     public function init(): void
     {
@@ -13,7 +13,7 @@ class CustomPostType extends AbstractModule
     }
 
     /**
-     * Registers the `cm_page_part` post type.
+     * Registers the `estelsmith_page_part` post type.
      *
      * @see https://developer.wordpress.org/reference/functions/register_post_type/
      */

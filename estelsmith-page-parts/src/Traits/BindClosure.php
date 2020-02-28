@@ -1,6 +1,6 @@
 <?php
 
-namespace CascadeMedia\WordPress\PageParts\Traits;
+namespace EstelSmith\WordPress\PageParts\Traits;
 
 trait BindClosure
 {

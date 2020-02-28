@@ -1,9 +1,9 @@
 <?php
 
-namespace CascadeMedia\WordPress\PageParts\Module;
+namespace EstelSmith\WordPress\PageParts\Module;
 
-use CascadeMedia\WordPress\PageParts\Module;
-use CascadeMedia\WordPress\PageParts\Plugin;
+use EstelSmith\WordPress\PageParts\Module;
+use EstelSmith\WordPress\PageParts\Plugin;
 
 abstract class AbstractModule implements Module
 {
