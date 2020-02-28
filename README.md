@@ -1,4 +1,4 @@
-# Estel's Page Parts Plugin
+# Estel's WordPress Page Parts Plugin
 
 `@TODO`
 
