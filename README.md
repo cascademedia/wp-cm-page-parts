@@ -1,4 +1,4 @@
-# wp-cm-page-parts
+# Estel's Page Parts Plugin
 
 `@TODO`
 

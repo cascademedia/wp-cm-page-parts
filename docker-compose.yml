@@ -36,7 +36,7 @@ services:
             - 8081:80
         volumes:
             - ./wp:/var/www/html
-            - ./cm-page-parts:/var/www/html/wp-content/plugins/cm-page-parts
+            - ./estelsmith-page-parts:/var/www/html/wp-content/plugins/estelsmith-page-parts
 
 volumes:
     database:
